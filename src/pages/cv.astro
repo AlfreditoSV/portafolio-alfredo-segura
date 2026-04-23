@@ -1,0 +1,327 @@
+---
+// Plantilla de Curriculum Vitae Optimizada para Impresión / PDF
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae - Alfredo Segura Vara</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos in línea para garantizar que funcionen en modo PDF de forma infalible */
+    :root {
+      --clr-text: #1a1a1a;
+      --clr-text-muted: #4b5563;
+      --clr-primary: #7C3AED;
+      --clr-secondary: #06B6D4;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: var(--font-body);
+      color: var(--clr-text);
+      line-height: 1.5;
+      background: #e5e7eb;
+      font-size: 13px;
+    }
+
+    .a4-page {
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      padding: 15mm 20mm;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    @media print {
+      body { background: white; margin: 0; }
+      .a4-page { width: 100%; height: auto !important; min-height: 0 !important; margin: 0; padding: 10mm; box-shadow: none; break-after: auto; }
+      .no-print { display: none !important; }
+    }
+
+    /* Top Bar Action */
+    .action-bar {
+      width: 210mm;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111827;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Layout */
+    .header {
+      border-bottom: 2px solid var(--clr-primary);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .name-title h1 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      color: var(--clr-primary);
+      line-height: 1.1;
+    }
+    .name-title h2 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      color: var(--clr-text-muted);
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 12px;
+      color: var(--clr-text-muted);
+    }
+    .contact-info div { margin-bottom: 4px; }
+    .contact-info i { color: var(--clr-secondary); width: 16px; text-align: center; margin-right: 5px; }
+
+    .grid-container {
+      display: block;
+    }
+    .grid-container::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .main-column {
+      float: left;
+      width: 65%;
+      padding-right: 30px;
+    }
+    .side-column {
+      float: left;
+      width: 35%;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      color: var(--clr-primary);
+      text-transform: uppercase;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .profile-text {
+      text-align: justify;
+      margin-bottom: 25px;
+    }
+
+    /* Experience */
+    .job { margin-bottom: 15px; page-break-inside: avoid; break-inside: avoid; }
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+    .job-title { font-weight: 700; font-family: var(--font-heading); font-size: 14px; }
+    .job-date { font-size: 11px; color: var(--clr-secondary); font-weight: 600; }
+    .job-company { font-weight: 600; color: var(--clr-text-muted); font-size: 12px; margin-bottom: 5px; }
+    .job-desc { font-size: 12px; color: #374151; }
+
+    /* Tags & Pills */
+    .skills-group { margin-bottom: 15px; page-break-inside: avoid; break-inside: avoid; }
+    .skills-title { font-size: 12px; font-weight: 700; margin-bottom: 5px; color: var(--clr-text-muted); }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-tag {
+      background: #f3f4f6;
+      color: #374151;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* Education & Certs */
+    .ed-item { margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; }
+    .ed-title { font-weight: 600; font-size: 13px; }
+    .ed-school { font-size: 11px; color: var(--clr-text-muted); }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar no-print">
+    <div>
+      <h3 style="font-family: 'Outfit';">Vista previa del PDF</h3>
+      <p style="font-size: 12px; opacity: 0.8;">Para guardar, haz clic en el botón y selecciona "Guardar como PDF" en el destino.</p>
+    </div>
+    <button class="action-btn" onclick="window.print()">
+      <i class="fa-solid fa-file-pdf"></i> Descargar / Imprimir CV
+    </button>
+  </div>
+
+  <div class="a4-page">
+    <header class="header">
+      <div class="name-title">
+        <h1>ALFREDO<br>SEGURA VARA</h1>
+        <h2>Programador Web y Móvil (Laravel & Flutter)</h2>
+      </div>
+      <div class="contact-info">
+        <div><i class="fa-solid fa-location-dot"></i> Ecatepec, Estado de México</div>
+        <div><i class="fa-solid fa-envelope"></i> pixxo2010@gmail.com</div>
+        <div><i class="fa-solid fa-phone"></i> +52 55 7257 3076</div>
+        <div><i class="fa-brands fa-github"></i> github.com/AlfreditoSV</div>
+        <div><i class="fa-brands fa-linkedin"></i> linkedin.com/in/alfredoseguravara</div>
+      </div>
+    </header>
+
+    <div class="grid-container">
+      <!-- MAIN COL -->
+      <div class="main-column">
+        <h3 class="section-title">Perfil Profesional</h3>
+        <p class="profile-text">
+          Desarrollador de software especializado en el ecosistema Laravel + PHP con amplia experiencia en la creación de aplicaciones móviles multiplataforma usando Flutter y Dart. Profesional autodidacta y adaptable con capacidades en el ciclo completo de desarrollo: desde el levantamiento de requisitos hasta despliegues en servidores VPS y GCP. Enfoque orientado a optimizar la lógica, arquitectura limpia y la experiencia de usuario.
+        </p>
+
+        <h3 class="section-title">Experiencia Laboral</h3>
+        
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Programador y Coordinador de Proyectos</span>
+            <span class="job-date">2023 - Actualidad</span>
+          </div>
+          <div class="job-company">Tu Hogar Con Sentido</div>
+          <p class="job-desc">
+            Desarrollo y despliegue de módulos, páginas web y aplicaciones móviles con Laravel, Livewire y Flutter.
+            Construcción de API REST para sincronización de inventarios (webhooks). Configuración y administración de VPS y GCP. Liderazgo técnico y capacitación del equipo de TI.
+          </p>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Programador Fullstack Freelance</span>
+            <span class="job-date">Junio 2022 - 2023</span>
+          </div>
+          <div class="job-company">Movemini</div>
+          <p class="job-desc">
+            Migración de portales CMS (WordPress) a infraestructura de código nativo MVC (Vanilla JS, PHP). 
+            Desarrollo de módulos administrativos (Service Desk PMO), integración y consumo de APIs, y diseño de dashboards operativos.
+          </p>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Soporte Técnico y Auxiliar Admin.</span>
+            <span class="job-date">Febrero 2020 - Abril 2022</span>
+          </div>
+          <div class="job-company">Zilcamedia / Cyber Dojo</div>
+          <p class="job-desc">
+            Programación de sitios corporativos estáticos. Instalación y levantamiento de redes y servidores LAN. Redacción de memorias técnicas para instalaciones (Telmex / CNOC) y maquetación de Layouts en Visio.
+          </p>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 20px;">Proyectos Seleccionados</h3>
+        <ul style="padding-left: 15px; font-size: 12px; color: #374151; margin-bottom: 20px;">
+          <li style="margin-bottom: 6px;"><strong>E-Commerce Multi-Tenant:</strong> Tienda virtual a gran escala con control iterativo de inventario, pasarela de pagos e integración Filament/Livewire.</li>
+          <li style="margin-bottom: 6px;"><strong>The Cultural Concierge:</strong> Sistema de <i>ticketing</i> para salas de teatro. Selección de asientos mapeada (Tailwind/AlpineJS) y motor de ventas.</li>
+          <li style="margin-bottom: 6px;"><strong>Campaña Evento 50-1:</strong> Plataforma de concurrencia y registro masivo con sorteos y métricas en dashboard.</li>
+        </ul>
+
+      </div>
+
+      <!-- SIDE COL -->
+      <div class="side-column">
+        
+        <h3 class="section-title">Habilidades Técnicas</h3>
+        
+        <div class="skills-group">
+          <div class="skills-title">Backend & Servidores</div>
+          <div class="skills-list">
+            <span class="skill-tag">PHP 8 / Laravel</span>
+            <span class="skill-tag">MySQL / SQLite</span>
+            <span class="skill-tag">API REST</span>
+            <span class="skill-tag">Apache / Nginx</span>
+            <span class="skill-tag">GCP</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-title">Móvil & Frontend</div>
+          <div class="skills-list">
+            <span class="skill-tag">Flutter / Dart</span>
+            <span class="skill-tag">JavaScript / Alpine</span>
+            <span class="skill-tag">Livewire</span>
+            <span class="skill-tag">HTML5 / CSS3</span>
+            <span class="skill-tag">Tailwind / Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-title">Herramientas</div>
+          <div class="skills-list">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">Photoshop / Maya</span>
+          </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 25px;">Educación Superior</h3>
+        <div class="ed-item">
+          <div class="ed-title">Ingeniería en Sistemas Computacionales</div>
+          <div class="ed-school">UVEG (En curso)</div>
+        </div>
+        <div class="ed-item">
+          <div class="ed-title">Bachillerato Técnico en Computación</div>
+          <div class="ed-school">Centro Ed. Cuautitlán Izcalli (2015)</div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 25px;">Rutas & Certificados</h3>
+        <div class="ed-item">
+          <div class="ed-title">Especialización Móvil (Flutter/Dart)</div>
+          <div class="ed-school">Udemy (2024-2025)</div>
+        </div>
+        <div class="ed-item">
+          <div class="ed-title">Ruta Backend PHP / Laravel API</div>
+          <div class="ed-school">Platzi (2022-2023)</div>
+        </div>
+        <div class="ed-item">
+          <div class="ed-title">Pensamiento Lógico y Algoritmos</div>
+          <div class="ed-school">Platzi (2022)</div>
+        </div>
+        <div class="ed-item">
+          <div class="ed-title">Diseño Web Completo</div>
+          <div class="ed-school">Udemy / freeCodeCamp (2022)</div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 25px;">Idiomas</h3>
+        <div class="ed-item">
+          <div class="ed-title">Español (Nativo)</div>
+          <div class="ed-school">Inglés Técnico (Doc. Técnica, Lectura)</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
