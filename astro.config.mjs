@@ -4,5 +4,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://alfreditosv.github.io',
-  base: '/portafolio-alfredo-segura',
+  base: '/portafolio-alfredo-segura/',
 });
