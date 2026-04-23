@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  
+  <section class="section" id="prompt-page" style="padding-top: 15rem; padding-bottom: 5rem; min-height: 80vh;">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">AI Engineering</span>
+        <h2 class="section-title">El <span class="gradient-text">Prompt</span> Original</h2>
+        <p class="section-subtitle">Este es el documento base o "prompt" que se le proporcionó a la inteligencia artificial para construir e inyectar la base inicial de este portafolio, demostrando habilidades de Prompt Engineering.</p>
+      </div>
+
+      <div class="prompt-wrapper reveal" style="background: rgba(30,30,35,0.7); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(16px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+        <pre><code style="color: #a9b5c2; font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; white-space: pre-wrap; line-height: 1.7;"># Proyecto:
+Este proyecto es un portafolio de trabajo para un desarrollador de software, con el objetivo de mostrar sus habilidades y experiencia a posibles empleadores.
+
+Nombre: Alfredo Segura Vara
+Tecnologias: Laravel, Filament, Mysql, Tailwind CSS, Bootstrap, Git, GitHub, Flutter basico, PHP, JavaScript, HTML, CSS, JQuery, Livewire, Alpine.js
+Servidores: Apache, Nginx, GCP, Laravel Cloud
+Herramientas: Git, Jira, Postman, VS Code, Antigravity, PHPStorm, Agentes de IA.
+Habilidades: Trabajo en equipo, Resolucion de problemas, Adaptabilidad, Aprendizaje rapido, Comunicacion efectiva.
+
+# Tecnologias para el desarrollo y estructura:
+Debe tener un diseño moderno y profesional, con una interfaz atractiva y fácil de usar orientado a las tendencias 2026.
+Implementa una arquitectura estática en Astro, particionando el código fuente en componentes reutilizables (ej. Navbar, Hero, About, Projects) y sirviendo el contenido de forma ultra-rápida y compatible con GitHub Pages.
+
+A nivel de diseño visual, requiero lo siguiente:
+- Estética Glassmorphism: Tarjetas y contenedores con desenfoques (backdrop-filter) y transparencias sobre fondos oscuros premium.
+- Colores: Escala de tema oscuro con acentos de color vibrantes, textos en degradado suave y sombras (glow) para interactividad.
+- Efectos e interacciones: Un puntero de luz inteligente que siga el cursor del usuario de manera fluida y un fondo animado sutil utilizando partículas (Canvas API).
+- Micro-animaciones: Elementos que se revelan al hacer scroll, tarjetas que escalan con efectos hover modernos en CSS, mockups pseudo-CSS para presentar mis proyectos.
+
+# Reglas
+Debe ser responsivo y adaptarse a diferentes tamaños de pantalla.
+Debe permitir la navegacion entre las diferentes secciones del portafolio.
+Debe tener un diseño moderno y profesional, con una interfaz atractiva y fácil de usar orientado a las tendencias 2026.
+Debe permitir la interaccion con el usuario, permitiendo enviar mensajes.
+
+# Secciones del portafolio
+1. Hero: Titulo, Subtitulo, Boton, Imagen.
+2. Sobre mi: Titulo, Subtitulo, Descripcion, Imagen.
+3. Proyectos: Titulo, Subtitulo, Descripcion, Imagen, Boton.
+4. Habilidades: Titulo, Subtitulo, Descripcion, Lista de habilidades.
+5. Contacto: Titulo, Subtitulo, Descripcion, Formulario de contacto (Nombre, Correo, Mensaje).
+6. Footer: Titulo, Subtitulo, Descripcion, Lista de enlaces.
+    
+Debes considerar animaciones y efectos visuales para mejorar la experiencia del usuario.
+Si es necesario amplia la informacion de cada seccion para que sea mas atractiva y facil de entender.
+puedes basarte en la informacion, curriculum.pdf anexado al proyecto.</code></pre>
+      </div>
+      
+      <div class="reveal" style="text-align: center; margin-top: 3rem;">
+        <a href="/portafolio-alfredo-segura/#projects" class="btn btn-outline" style="min-width: 200px;">
+          <i class="fa-solid fa-arrow-left"></i> Volver al Portafolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

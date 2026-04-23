@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Alfredo Segura Vara — Desarrollador de Software Full Stack especializado en Laravel, PHP, JavaScript, Livewire y más." />
+  <meta name="keywords" content="Alfredo Segura, desarrollador software, Laravel, PHP, JavaScript, Livewire, portafolio" />
+  <meta name="author" content="Alfredo Segura Vara" />
+  <meta property="og:title" content="Alfredo Segura Vara — Desarrollador de Software" />
+  <meta property="og:description" content="Portafolio profesional con proyectos, habilidades y experiencia en desarrollo web y móvil." />
+  <meta property="og:type" content="website" />
+  <title>Alfredo Segura Vara — Desarrollador de Software</title>
+  <link rel="icon" type="image/png" href="/portafolio-alfredo-segura/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/portafolio-alfredo-segura/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════ CURSOR GLOW ═══════════════════════ -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ═══════════════════════ PARTICLES BACKGROUND ═══════════════════════ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <slot />
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script is:inline src="/portafolio-alfredo-segura/js/script.js"></script>
+</body>
+</html>
