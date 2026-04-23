@@ -15,6 +15,9 @@
       </ul>
 
       <div class="nav-actions">
+        <button class="btn btn-outline btn-sm share-pulse-btn" id="share-portfolio-btn" aria-label="Compartir Portafolio" title="Compartir Portafolio">
+          <i class="fa-solid fa-share-nodes"></i>
+        </button>
         <a href="/portafolio-alfredo-segura/cv" target="_blank" class="btn btn-outline btn-sm" id="download-cv-btn">
           <i class="fa-solid fa-file-pdf"></i> Generar / Ver CV
         </a>
@@ -25,3 +28,197 @@
     </div>
   </nav>
 
+  <!-- Modal de Compartir Portafolio -->
+  <div id="share-modal" class="share-modal">
+    <div class="share-modal-wrapper">
+      <div class="share-modal-content glass-panel">
+        <button class="share-modal-close" id="share-modal-close" aria-label="Cerrar modal"><i class="fa-solid fa-xmark"></i></button>
+        <h3 class="modal-title">Compartir Portafolio</h3>
+        <p class="modal-desc">Escanea el código QR o comparte directamente en redes.</p>
+        
+        <div class="modal-qr-container">
+          <div class="qr-frame">
+            <img id="nav-modal-qr-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIj48L3N2Zz4=" alt="Código QR del Portafolio" width="160" height="160" crossorigin="anonymous" loading="lazy">
+          </div>
+          <span class="qr-scan-label">Enlace Directo Generado</span>
+        </div>
+        
+        <div class="modal-social-links">
+          <a href="#" id="nav-modal-wa" target="_blank" rel="noopener noreferrer" class="social-share-btn wa">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="#" id="nav-modal-li" target="_blank" rel="noopener noreferrer" class="social-share-btn li">
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style is:global>
+    /* Share Modal Styles */
+    .share-modal {
+      display: none; /* oculta por defecto */
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 9999;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .share-modal.show {
+      display: flex;
+      opacity: 1;
+      animation: modalFadeIn 0.3s forwards;
+    }
+
+    .share-modal-wrapper {
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .share-modal-content {
+      background: rgba(17, 24, 39, 0.85); /* Tailwind gray-900 transparent */
+      border: 1px solid rgba(124, 58, 237, 0.3); /* Primary border */
+      border-radius: 16px;
+      padding: 30px 25px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    
+    .share-modal.show .share-modal-content {
+      transform: translateY(0);
+    }
+
+    .share-modal-close {
+      position: absolute;
+      top: 15px; right: 15px;
+      background: transparent; border: none;
+      color: #9ca3af; font-size: 20px;
+      cursor: pointer; transition: color 0.2s;
+    }
+    .share-modal-close:hover { color: #f3f4f6; }
+
+    .modal-title {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      color: #f3f4f6;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .modal-desc {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 25px;
+    }
+
+    .modal-qr-container {
+      margin-bottom: 25px;
+    }
+    .qr-frame {
+      background: white;
+      padding: 10px;
+      border-radius: 12px;
+      display: inline-block;
+      border: 2px solid var(--clr-primary, #7C3AED);
+    }
+    .qr-frame img { display: block; border-radius: 4px; }
+    .qr-scan-label {
+      display: block;
+      color: var(--clr-primary, #7C3AED);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-social-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .social-share-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500; font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .social-share-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .social-share-btn.wa { background: #25D366; }
+    .social-share-btn.li { background: #0077b5; }
+
+    /* Share Navbar Button Icon */
+    .share-pulse-btn {
+      padding: 0.5rem 0.75rem !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .share-pulse-btn i { font-size: 1rem; }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const shareBtn = document.getElementById('share-portfolio-btn');
+      const shareModal = document.getElementById('share-modal');
+      const closeBtn = document.getElementById('share-modal-close');
+      
+      if(!shareBtn || !shareModal || !closeBtn) return;
+
+      const currentUrl = encodeURIComponent(window.location.href.split('#')[0]);
+      const title = encodeURIComponent("Portafolio Profesional - Alfredo Segura Vara");
+
+      // Set links once
+      const navModalWa = document.getElementById('nav-modal-wa');
+      const navModalLi = document.getElementById('nav-modal-li');
+      const navQrImg = document.getElementById('nav-modal-qr-img');
+
+      if(navModalWa) navModalWa.href = `https://api.whatsapp.com/send?text=${title}%20${currentUrl}`;
+      if(navModalLi) navModalLi.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+      if(navQrImg) navQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${currentUrl}&margin=0&color=0f172a`;
+
+      // Handlers
+      const openModal = (e) => {
+        e.preventDefault();
+        shareModal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // prevent scrolling
+      };
+      
+      const closeModal = () => {
+        shareModal.classList.remove('show');
+        document.body.style.overflow = '';
+      };
+
+      shareBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      
+      // Close on backdrop click
+      shareModal.addEventListener('click', (e) => {
+        if(e.target === shareModal || e.target === shareModal.firstElementChild) {
+          closeModal();
+        }
+      });
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && shareModal.classList.contains('show')) closeModal();
+      });
+    });
+  </script>

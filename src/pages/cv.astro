@@ -8,17 +8,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curriculum Vitae - Alfredo Segura Vara</title>
+  <meta name="description" content="Curriculum Vitae de Alfredo Segura Vara. Desarrollador especializado en Laravel, Flutter, PHP y JavaScript.">
   <meta name="keywords" content="Alfredo Segura, Alfredo Segura Vara, desarrollador software, Laravel, PHP, JavaScript, Livewire, Flutter, Dart, GCP, Tailwind CSS, API REST, full stack developer, México, portafolio, cv, curriculum vitae">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="author" content="Alfredo Segura Vara">
+  <meta name="robots" content="index, follow">
   
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="CV - Alfredo Segura Vara | Desarrollador de Software">
+  <meta property="og:description" content="Trayectoria, experiencia y habilidades como desarrollador web y móvil.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://alfreditosv.github.io/portafolio-alfredo-segura/cv">
+  <meta property="og:image" content="https://alfreditosv.github.io/portafolio-alfredo-segura/images/cv-preview.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CV - Alfredo Segura Vara | Desarrollador de Software">
+  <meta name="twitter:description" content="Trayectoria, experiencia y habilidades como desarrollador web y móvil.">
+  <meta name="twitter:image" content="https://alfreditosv.github.io/portafolio-alfredo-segura/images/cv-preview.png">
+
+  <!-- Seguridad Extra (Cabeceras recomendadas simuladas para el doc) -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPMG1Z4850"></script>
+  <!-- Script Dinámico para Enlaces de Compartir y QR -->
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set canonical/dynamic url if hosted
+      const currentUrl = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent("CV - Alfredo Segura Vara | Programador Web y Móvil");
+      
+      const btnWa = document.getElementById('share-wa');
+      const btnLi = document.getElementById('share-li');
+      
+      if(btnWa) btnWa.href = `https://api.whatsapp.com/send?text=${title}%20${currentUrl}`;
+      if(btnLi) btnLi.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+
+      // Dynamic QR Code generation for offline scanning
+      const qrCodeImg = document.getElementById('qr-code-img');
+      if(qrCodeImg) {
+        // We use QR Server API.
+        qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${currentUrl}&margin=0&color=1a1a1a`;
+      }
+    });
+
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-CPMG1Z4850');
   </script>
   
@@ -84,7 +123,26 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      transition: opacity 0.3s ease;
     }
+    .action-btn:hover { opacity: 0.9; }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .social-btn:hover { transform: scale(1.05); }
+    .social-btn.wa { background: #25D366; }
+    .social-btn.li { background: #0077b5; }
+    .share-actions span { color: #9ca3af; }
 
     /* Layout */
     .header {
@@ -112,11 +170,47 @@
 
     .contact-info {
       text-align: right;
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--clr-text-muted);
     }
     .contact-info div { margin-bottom: 4px; }
     .contact-info i { color: var(--clr-secondary); width: 16px; text-align: center; margin-right: 5px; }
+    
+    .contact-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-link:hover {
+      color: var(--clr-primary);
+    }
+    
+    .header-middle {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 5px;
+    }
+    .qr-container {
+      text-align: center;
+      background: white;
+      padding: 5px;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+    }
+    .qr-container img {
+      display: block;
+      margin: 0 auto;
+    }
+    .qr-label {
+      font-size: 7.5px;
+      font-weight: 700;
+      color: var(--clr-primary);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
     .grid-container {
       display: block;
@@ -187,9 +281,20 @@
       <h3 style="font-family: 'Outfit';">Vista previa del PDF</h3>
       <p style="font-size: 12px; opacity: 0.8;">Para guardar, haz clic en el botón y selecciona "Guardar como PDF" en el destino.</p>
     </div>
-    <button class="action-btn" onclick="window.print()">
-      <i class="fa-solid fa-file-pdf"></i> Descargar / Imprimir CV
-    </button>
+    
+    <div class="share-actions" style="display: flex; gap: 10px; align-items: center;">
+      <span style="font-size: 12px; font-weight: 500;">Compartir:</span>
+      <a href="#" id="share-wa" target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp" class="social-btn wa">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+      <a href="#" id="share-li" target="_blank" rel="noopener noreferrer" aria-label="Compartir en LinkedIn" class="social-btn li">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      
+      <button class="action-btn" onclick="window.print()" style="margin-left: 15px;">
+        <i class="fa-solid fa-file-pdf"></i> Descargar / Imprimir
+      </button>
+    </div>
   </div>
 
   <div class="a4-page">
@@ -198,12 +303,36 @@
         <h1>ALFREDO<br>SEGURA VARA</h1>
         <h2>Programador Web y Móvil (Laravel & Flutter)</h2>
       </div>
+
+      <div class="header-middle">
+        <div class="qr-container">
+          <img id="qr-code-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MCIgaGVpZ2h0PSI3MCI+PC9zdmc+" alt="Código QR del CV" width="70" height="70" crossorigin="anonymous" loading="lazy">
+          <div class="qr-label">ESCANEA PARA VER<br>VERSIÓN WEB</div>
+        </div>
+      </div>
+
       <div class="contact-info">
-        <div><i class="fa-solid fa-location-dot"></i>Estado de México, México</div>
-        <div><i class="fa-solid fa-envelope"></i> pixxo2010@gmail.com</div>
-        <div><i class="fa-brands fa-whatsapp"></i> +52 55 64 20 72 71</div>
-        <div><i class="fa-brands fa-github"></i> github.com/AlfreditoSV</div>
-        <div><i class="fa-brands fa-linkedin"></i> linkedin.com/in/alfredoseguravara</div>
+        <div><i class="fa-solid fa-location-dot"></i> Estado de México, México</div>
+        <div>
+          <a href="mailto:pixxo2010@gmail.com" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-envelope"></i> pixxo2010@gmail.com
+          </a>
+        </div>
+        <div>
+          <a href="https://wa.me/525564207271" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i> +52 55 64 20 72 71
+          </a>
+        </div>
+        <div>
+          <a href="https://github.com/AlfreditoSV" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i> github.com/AlfreditoSV
+          </a>
+        </div>
+        <div>
+          <a href="https://linkedin.com/in/alfredoseguravara" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i> linkedin.com/in/alfredoseguravara
+          </a>
+        </div>
       </div>
     </header>
 
