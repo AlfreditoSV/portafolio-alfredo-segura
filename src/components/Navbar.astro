@@ -12,13 +12,25 @@
         <li><a href="#projects" class="nav-link" id="nav-projects">Proyectos</a></li>
         <li><a href="#skills" class="nav-link" id="nav-skills">Habilidades</a></li>
         <li><a href="#contact" class="nav-link" id="nav-contact">Contacto</a></li>
+        
+        <!-- Mobile Actions -->
+        <li class="mobile-only" style="width: 100%; margin-top: 0.5rem;">
+          <button class="btn btn-glass btn-sm open-share-modal" aria-label="Compartir Portafolio" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-share-nodes"></i> Compartir Portafolio
+          </button>
+        </li>
+        <li class="mobile-only" style="width: 100%;">
+          <a href="/portafolio-alfredo-segura/cv" target="_blank" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-file-pdf"></i> Visualizar CV (PDF)
+          </a>
+        </li>
       </ul>
 
       <div class="nav-actions">
-        <button class="btn btn-outline btn-sm share-pulse-btn" id="share-portfolio-btn" aria-label="Compartir Portafolio" title="Compartir Portafolio">
+        <button class="btn btn-outline btn-sm share-pulse-btn desktop-only open-share-modal" aria-label="Compartir Portafolio" title="Compartir Portafolio">
           <i class="fa-solid fa-share-nodes"></i>
         </button>
-        <a href="/portafolio-alfredo-segura/cv" target="_blank" class="btn btn-outline btn-sm" id="download-cv-btn">
+        <a href="/portafolio-alfredo-segura/cv" target="_blank" class="btn btn-outline btn-sm desktop-only" id="download-cv-btn">
           <i class="fa-solid fa-file-pdf"></i> Generar / Ver CV
         </a>
         <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
@@ -56,6 +68,15 @@
   </div>
 
   <style is:global>
+    /* Visibility Helpers */
+    @media (max-width: 768px) {
+      .desktop-only { display: none !important; }
+      .mobile-only { display: flex !important; }
+    }
+    @media (min-width: 769px) {
+      .mobile-only { display: none !important; }
+    }
+    
     /* Share Modal Styles */
     .share-modal {
       display: none; /* oculta por defecto */
@@ -177,11 +198,11 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const shareBtn = document.getElementById('share-portfolio-btn');
+      const shareBtns = document.querySelectorAll('.open-share-modal');
       const shareModal = document.getElementById('share-modal');
       const closeBtn = document.getElementById('share-modal-close');
       
-      if(!shareBtn || !shareModal || !closeBtn) return;
+      if(shareBtns.length === 0 || !shareModal || !closeBtn) return;
 
       const currentUrl = encodeURIComponent(window.location.href.split('#')[0]);
       const title = encodeURIComponent("Portafolio Profesional - Alfredo Segura Vara");
@@ -207,7 +228,7 @@
         document.body.style.overflow = '';
       };
 
-      shareBtn.addEventListener('click', openModal);
+      shareBtns.forEach(btn => btn.addEventListener('click', openModal));
       closeBtn.addEventListener('click', closeModal);
       
       // Close on backdrop click
